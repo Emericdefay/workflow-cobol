@@ -22,7 +22,7 @@ jobs:
       run: |
         cobc -c -lsqlit3 sqlite3.c
     - name: Compile COBOL code
-      run: |
+      run: | 
         cobc -x -free -o sum sum.cob
         cobc -x -lsqlite3 test_sum.cob sqlite3.o
     - name: Run tests
