@@ -14,32 +14,33 @@ jobs:
     - name: Install COBOL compiler
       run: |
         sudo apt-get update
-        sudo apt-get install -y gnucobol
-    - name: Install DB2
+        sudo apt-get install -y gnucobol libsqlite3-dev
+    - name: Download sqlite3-cobol connector
       run: |
-        wget https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/linuxx64_odbc_cli.tar.gz
-        tar -xvf linuxx64_odbc_cli.tar.gz
-        ls
-        ./db2/install/db2_install -b db2
-        rm linuxx64_odbc_cli.tar.gz
-    - name: Create DB2 user
+        wget https://github.com/aghul/sqlite3-cobol/archive/master.zip
+        unzip master.zip
+  connectorSQL:
+    steps:
+    - name: Compile sqlite3-cobol connector
       run: |
-        db2 create user user using password
-    - name: Initialize DB2 database
+        cd sqlite3-cobol-master
+        make
+  precompilations:
+    steps:
+    - name: Precompile SQL commands
       run: |
-        db2start
-        db2 -tvf ./tests/SQL.txt
-    - name: Compile COBOL test_sum
-      run: cobc -x -free -o test_sum .tests/test_sum.cob
-    - name: Compile COBOL sum
+        cobc -x -free -o sum sum.cob
+        cobc -x -free -o test_sum test_sum.cob
+  compilations:
+    steps:
+    - name: Compile COBOL code
       run: cobc -x -free -o sum sum.cob
+      run: cobc -x -free -o test_sum test_sum.cob
+  tests:
+    steps:
     - name: Run tests
-      run: |
-        cobcrun test_sum
-        if [ $? -ne 0 ]; then
-          echo "Tests failed"
-          exit 1
-        fi
-    - name: Push code to GitHub
-      if: success()
-      run: git push
+      run: cobcrun test_sum
+      if [ $? -ne 0 ]; then
+        echo "Tests failed"
+        exit 1
+      fi
