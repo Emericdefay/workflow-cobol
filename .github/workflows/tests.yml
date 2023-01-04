@@ -19,25 +19,17 @@ jobs:
       run: |
         wget https://github.com/aghul/sqlite3-cobol/archive/master.zip
         unzip master.zip
-  connectorSQL:
-    steps:
     - name: Compile sqlite3-cobol connector
       run: |
         cd sqlite3-cobol-master
         make
-  precompilations:
-    steps:
     - name: Precompile SQL commands
       run: |
         cobc -x -free -o sum sum.cob
         cobc -x -free -o test_sum test_sum.cob
-  compilations:
-    steps:
     - name: Compile COBOL code
       run: cobc -x -free -o sum sum.cob
       run: cobc -x -free -o test_sum test_sum.cob
-  tests:
-    steps:
     - name: Run tests
       run: cobcrun test_sum
       if [ $? -ne 0 ]; then
