@@ -28,8 +28,9 @@ jobs:
         cobc -x -free -o sum sum.cob
         cobc -x -free -o test_sum test_sum.cob
     - name: Compile COBOL code
-      run: cobc -x -free -o sum sum.cob
-      run: cobc -x -free -o test_sum test_sum.cob
+      run: |
+        cobc -x -free -o sum sum.cob
+        cobc -x -free -o test_sum test_sum.cob
     - name: Run tests
       run: |
         cobcrun test_sum
