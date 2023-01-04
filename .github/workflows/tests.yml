@@ -17,7 +17,6 @@ jobs:
         sudo apt-get install -y gnucobol libsqlite3-dev
     - name: Initialize database from .tests/SQL.txt
       run: |
-        ls
         sqlite3 test.db < ./tests/SQL.txt
     - name: Compile COBOL code
       run: |
