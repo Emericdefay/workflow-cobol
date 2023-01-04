@@ -20,8 +20,8 @@ jobs:
         sqlite3 test.db < ./tests/SQL.txt
     - name: Compile COBOL code
       run: | 
-        cobc -x -lsqlite3 -o  sum sum.cob test.db
-        cobc -x -lsqlite3 -o test_sum.cob test.db
+        cobc -x -fdebugging-line sum.cob -lsqlite3
+        cobc -x -fdebugging-line test_sum.cob -lsqlite3
     - name: Run tests
       run: |
         cobcrun test_sum
