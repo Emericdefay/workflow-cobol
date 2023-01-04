@@ -32,8 +32,8 @@ jobs:
       run: cobc -x -free -o test_sum test_sum.cob
     - name: Run tests
       run: |
-      cobcrun test_sum
-      if [ $? -ne 0 ]; then
-        echo "Tests failed"
-        exit 1
-      fi
+        cobcrun test_sum
+        if [ $? -ne 0 ]; then
+          echo "Tests failed"
+          exit 1
+        fi
