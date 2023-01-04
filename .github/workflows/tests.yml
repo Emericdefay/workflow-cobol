@@ -11,10 +11,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Install COBOL compiler and MUnit
+    - name: Install COBOL compiler
       run: |
         sudo apt-get update
-        sudo apt-get install -y gnucobol munit
+        sudo apt-get install -y gnucobol
     - name: Install DB2
       run: |
         wget https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc/linux/v10.5fp9/clidriver/db2exc.tar.gz
@@ -32,9 +32,9 @@ jobs:
       run: cobc -x -free -o test_sum .tests/test_sum.cob
     - name: Compile COBOL sum
       run: cobc -x -free -o sum sum.cob
-    - name: Run tests with MUnit
+    - name: Run tests
       run: |
-        munit run --cobol test_sum
+        cobcrun test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
