@@ -2,19 +2,14 @@
        PROGRAM-ID. SUM.
 
        ENVIRONMENT DIVISION.
-
        DATA DIVISION.
-
        LINKAGE SECTION.
-
        01  ARRAY.
            05  FILLER OCCURS 5 TIMES.
                10  ITEM PIC 9(4) VALUE 0.
-
        01  RESULT PIC 9(4) VALUE 0.
 
        PROCEDURE DIVISION USING BY REFERENCE ARRAY GIVING RESULT.
-
       * Calculate sum of array elements
            MOVE ZERO TO RESULT.
            PERFORM VARYING ITEM FROM 1 BY 1 UNTIL ITEM > 5
