@@ -17,7 +17,7 @@ jobs:
         sudo apt-get install -y gnucobol
     - name: Install DB2
       run: |
-        wget https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc/linux/v10.5fp9/clidriver/db2exc.tar.gz
+        wget https://public.dhe.ibm.com/ibmdl/export/pub/software/data/db2/drivers/odbc_cli/ibm_db2-1.9.6.1.tar
         tar -xvf db2exc.tar.gz
         ./db2/install/db2_install -b db2
         rm db2exc.tar.gz
