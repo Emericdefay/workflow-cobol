@@ -1,0 +1,8 @@
+DROP TABLE tableName;
+CREATE TABLE tableName 
+(
+    a	INT,
+    b	INT,
+);
+
+INSERT INTO tableName (a, b);

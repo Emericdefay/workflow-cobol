@@ -15,22 +15,16 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gnucobol libsqlite3-dev
-    - name: Download sqlite3-cobol connector
+    - name: Initialize database from .tests/SQL.txt
       run: |
-        wget https://github.com/aghul/sqlite3-cobol/archive/master.zip
-        unzip master.zip
-    - name: Compile sqlite3-cobol connector
+        sqlite3 test.db < .tests/SQL.txt
+    - name: Compile COBOL code
       run: |
-        cd sqlite3-cobol-master
-        make
-    - name: Precompile SQL commands
-      run: |
-        cobc -x -free -o sum sum.cob
-        cobc -x -free -o test_sum test_sum.cob
+        cobc -c -lsqlit3 sqlite3.c
     - name: Compile COBOL code
       run: |
         cobc -x -free -o sum sum.cob
-        cobc -x -free -o test_sum test_sum.cob
+        cobc -x -lsqlite3 test_sum.cob sqlite3.o
     - name: Run tests
       run: |
         cobcrun test_sum
