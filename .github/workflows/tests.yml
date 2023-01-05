@@ -18,9 +18,8 @@ jobs:
     - name: Library
       run: |
         DIR=pwd
-        export COB_LIBRARY_PATH=$COB_LIBRARY_PATH:$DIR
-        set PATH=$PATH:$DIR
-        export $PATH
+        export COB_LIBRARY_PATH=$DIR
+        setenv PATH $PATH:$DIR
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
