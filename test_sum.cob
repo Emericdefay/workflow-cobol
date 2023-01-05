@@ -10,6 +10,8 @@
        01  TEST-ARRAY.
            05  FILLER OCCURS 5 TIMES.
                10  ITEM PIC 9(4) VALUE 0.
+      
+       01 DB POINTER.
 
       * Declare variables for SQL connection
        01  SQL-CONNECTION PIC X(128).
@@ -33,36 +35,33 @@
                   " USING " SQL-PASSWORD
            INTO SQL-CONNECTION
            END-STRING
-           EXEC SQL
-               PREPARE S1 FROM :SQL-CONNECTION
-           END-EXEC
-           EXEC SQL
-               EXECUTE S1
-           END-EXEC
 
-      * Define test to sum array elements
-      * Expected result: 15
-           MOVE ZERO TO ITEM.
-           PERFORM VARYING ITEM FROM 1 BY 1 UNTIL ITEM > 5
-      * Open cursor
-           EXEC SQL
-               OPEN C1
-           END-EXEC
-      * Fetch value from SQL
-           EXEC SQL
-               FETCH FROM C1 INTO :ITEM
-           END-EXEC
-      * Add value to array
-           ADD ITEM TO TEST-ARRAY(ITEM)
-      * Close cursor
-           EXEC SQL
-               CLOSE C1
-           END-EXEC
-           END-PERFORM
+           CALL "sqlite3_open" USING
+               BY REFERENCE  DBNAME
+               BY REFERENCE  DB
+               RETURNING     RC
+           END-CALL
 
-      * Call sum function
-           CALL "SUM" USING BY REFERENCE TEST-ARRAY
-           GIVING RESULT
+           IF RC NOT = ZERO
+               DISPLAY "ERROR OPENING DATABASE."
+           ELSE
+               DISPLAY "DATABASE OPENED."
+           END-IF
+
+           SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK".
+
+           MOVE "SELECT * FROM testTable;" TO SQLQUERY
+           
+           CALL "sqlite3_exec" USING
+               BY VALUE     DB
+               BY REFERENCE SQLQUERY
+               BY VALUE     CALLBACK
+               BY VALUE     0
+               BY REFERENCE ERR
+               RETURNING RC
+      *        Call sum function
+               CALL "SUM" USING BY REFERENCE RC GIVING RESULT
+           END-CALL
 
       * Check result
            IF RESULT NOT = 15 THEN
@@ -72,10 +71,8 @@
            END-IF
 
       * Disconnect from SQL database
-           call "ocsqlite_close"
-               using
-                   by value db
-               returning result
-           end-call
+           CALL "sqlite3_close" USING
+               BY REFERENCE DB
+           END-CALL
 
            STOP RUN.
