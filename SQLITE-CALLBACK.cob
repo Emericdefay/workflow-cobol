@@ -3,10 +3,9 @@
        DATA DIVISION. 
        WORKING-STORAGE SECTION.
        LINKAGE SECTION.
-       01 COLUMN-ID         PIC 999.
-       01 COLUMN-NAME         PIC 999.
+       01 COLUMN-ID         PIC 9(4).
+       01 COLUMN-NAME       PIC 9(4).
        01 SUM-RESULT        PIC 9(4) GLOBAL.
-       01 COLUMN-NAME       PIC X(20).
        01 QUERY             PIC X(80).
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
