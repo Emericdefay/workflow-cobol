@@ -29,8 +29,8 @@ jobs:
     - name: test_sum
       run: |
         cobc -m test_sum.cob -lsqlite3
-        cobc -o test_suma -lsqlite3
-        cobc -x test_sumb -lsqlite3
+        cobc -o test_suma test_sum.cob -lsqlite3
+        cobc -x test_sumb test_sum.cob -lsqlite3
     - name: Ls
       run: ls
     - name: Env
