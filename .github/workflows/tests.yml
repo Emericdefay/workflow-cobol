@@ -42,7 +42,7 @@ jobs:
       run: |
         cd "${COB_FILE_PATH}"
         ls
-        cobcrun ./test_suma
+        cobcrun ./test_suma.so
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
