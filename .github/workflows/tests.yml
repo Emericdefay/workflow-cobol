@@ -22,14 +22,14 @@ jobs:
       run: | 
         cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
         cobc -m -fdebugging-line sum.cob -lsqlite3
-        cobc -x -debug test_sum.cob -lsqlite3
+        cobc -x test_sum.cob sum.s -lsqlite3
     - name: Ls
       run: ls
     - name: Library
       run: |
         export COB_LIBRARY_PATH=.
     - name: Env
-      run: cobcrun --runtime-env
+      run: cobcrun --runtime-config
     - name: Compiler info
       run: cobc --info
     - name: Run tests
