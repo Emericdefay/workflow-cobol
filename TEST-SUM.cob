@@ -15,7 +15,7 @@
        01 CALLBACK           PROCEDURE-POINTER.
 
        LINKAGE SECTION.
-       01 Column-Id         PIC 999.
+       01 Column-id         PIC 999.
        01 Column-Name       PIC X(20).
        01 argv.
            03  firstColumn   pointer.
@@ -86,7 +86,7 @@
                  by reference argv
                  by reference azColName.
 
-            set address of Column-Id   to firstColumn
+            set address of Column-id   to firstColumn
             set address of Column-Name to secondColumn
 
             display Column-id "|" Column-Name
