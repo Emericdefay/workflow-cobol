@@ -11,13 +11,22 @@
        01 ARGV.
            03  FIRSTCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
+       01  SUM-RESULT        PIC 9(4) VALUE 0.
+
        PROCEDURE DIVISION USING
                                 BY VALUE NOTUSED
                                 BY VALUE ARGC
                                 BY REFERENCE ARGV
                                 BY REFERENCE AZCOLNAME.
+                                BY REFERENCE SUM-RESULT.
 
            SET ADDRESS OF COLUMN-ID TO FIRSTCOLUMN
            DISPLAY "COLUMN-ID : " COLUMN-ID
+
+      *        Call sum function
+           CALL "MAIN" USING 
+                           BY REFERENCE RC 
+                           RETURNING    RESULT
+
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.

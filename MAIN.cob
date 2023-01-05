@@ -6,6 +6,7 @@
        LINKAGE SECTION.
        01  RC     PIC 9 COMP-5.
        01  RESULT PIC 9(4).
+       01  SUM-RESULT        PIC 9(4) VALUE 0.
 
        PROCEDURE DIVISION USING 
                                 RC

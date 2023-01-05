@@ -6,23 +6,16 @@
        DATA DIVISION.
 
        WORKING-STORAGE SECTION.      
+      * Declare variables for SQL connection
        01 DB                 POINTER.
        01 ERR                POINTER.
        01 SQLQUERY           PIC X(100).
        01 DBNAME             PIC X(08).
        01 RC                 PIC 9 COMP-5.
        01 CALLBACK USAGE PROCEDURE-POINTER.
-       01 VARIABLE PIC xxxxxxxx.
 
-      * Declare variables for SQL connection
-       01  SQL-CONNECTION PIC X(128).
-       01  SQL-HOST PIC X(64) VALUE "localhost".
-       01  SQL-PORT PIC 9(5) VALUE 50000.
-       01  SQL-DATABASE PIC X(64) VALUE "test".
-       01  SQL-USERNAME PIC X(64) VALUE "user".
-       01  SQL-PASSWORD PIC X(64) VALUE "password".
-
-       01  RESULT PIC 9(4) VALUE 0.
+      * RESULTS
+       01  SUM-RESULT        PIC 9(4) VALUE 0.
 
        PROCEDURE DIVISION.
            SET DB         TO NULL
@@ -44,7 +37,8 @@
                DISPLAY "DATABASE OPENED."
            END-IF
 
-           SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK".
+           SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK" 
+                        USING BY REFERENCE SUM-RESULT.
 
            MOVE "SELECT * FROM TESTTABLE;" TO SQLQUERY
            
@@ -56,16 +50,11 @@
                BY REFERENCE ERR
                RETURNING RC
 
-               DISPLAY CALLBACK
-      *        Call sum function
-               CALL "MAIN" USING 
-                               BY REFERENCE RC 
-                               RETURNING    RESULT
            END-CALL
            
-           DISPLAY "RESULTS: " RESULT
+           DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
-           IF RESULT NOT = 0 THEN
+           IF SUM-RESULT NOT = 0 THEN
                DISPLAY "Test failed: invalid result"
                CALL "TEST-FAILED"
            ELSE
