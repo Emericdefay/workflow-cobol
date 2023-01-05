@@ -17,7 +17,7 @@ jobs:
         sudo apt-get install -y gnucobol libsqlite3-dev
     - name: Library
       run: |
-        set DIR = pwd
+        DIR=pwd
         export COB_LIBRARY_PATH=$COB_LIBRARY_PATH:$DIR
         set PATH=$PATH:$DIR
         export $PATH
