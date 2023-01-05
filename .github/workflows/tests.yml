@@ -36,9 +36,7 @@ jobs:
       run: cobc --info
     - name: Run tests
       run: |
-        DIR=pwd
-        COBOL="$DIR/test_sum"
-        echo $COBOL
+        COBOL="${COB_FILE_PATH}/test_sum"
         cobcrun $COBOL
         if [ $? -ne 0 ]; then
           echo "Tests failed"
