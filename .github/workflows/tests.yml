@@ -22,6 +22,9 @@ jobs:
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
+    - name: Compile the C code SQLITE
+      run: |
+        cobc -c -lsqlit3 sqlite3.c
     - name: sqlite_callback
       run: cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
     - name: sum
