@@ -59,9 +59,9 @@
 
                DISPLAY CALLBACK
       *        Call sum function
-      *        CALL "MAIN" USING 
-      *                        BY REFERENCE FIRSTCOLUMN 
-      *                        RETURNING    RESULT
+               CALL "MAIN" USING 
+                               BY REFERENCE RC 
+                               RETURNING    RESULT
            END-CALL
            
            DISPLAY "RESULTS: " RESULT

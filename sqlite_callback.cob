@@ -8,8 +8,7 @@
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
        01 ARGV.
-          03  FIRSTCOLUMN   POINTER.
-          03  SECONDCOLUMN  POINTER.
+           03  FIRSTCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
        PROCEDURE DIVISION USING
       *                         BY VALUE NOTUSED
@@ -20,8 +19,6 @@
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
        
            DISPLAY COLUMN-ID
-
-
        
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.

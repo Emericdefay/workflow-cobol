@@ -31,11 +31,11 @@ jobs:
     - name: Compile the C code SQLITE
       run: |
         cobc -c -lsqlit3 sqlite3.c
-    - name: sqlite_callback
+    - name: compil - sqlite_callback
       run: cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
-    - name: SUM
+    - name: compil - SUM
       run: cobc -m -fdebugging-line MAIN.cob -lsqlite3
-    - name: test_sum
+    - name: compil - TEST-SUM
       run: |
         cobc -x -o test_sum TEST-SUM.cob sqlite3.o MAIN.so sqlite_callback.so -lsqlite3
     - name: Ls
