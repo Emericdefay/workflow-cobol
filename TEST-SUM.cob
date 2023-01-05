@@ -55,7 +55,7 @@
                BY REFERENCE ERR
                RETURNING RC
       *        Call sum function
-               CALL "SUM" USING BY REFERENCE RC RETURNING RESULT
+               CALL "MAIN" USING BY REFERENCE RC RETURNING RESULT
            END-CALL
 
       * Check result
