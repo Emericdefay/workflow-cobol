@@ -29,7 +29,7 @@ jobs:
     - name: Ls
       run: ls
     - name: test_sum
-      run: cobc -x test_sum test_sum.cob -lsqlite3
+      run: cobc -x test_sum.cob -lsqlite3
     - name: Ls
       run: ls
     - name: PATH add
