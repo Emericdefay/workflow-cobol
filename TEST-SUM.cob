@@ -47,7 +47,7 @@
 
            SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK".
 
-           MOVE "SELECT * FROM testTable;" TO SQLQUERY
+           MOVE "SELECT * FROM TESTTABLE;" TO SQLQUERY
            
            CALL "sqlite3_exec" USING
                BY VALUE     DB
