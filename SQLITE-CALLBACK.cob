@@ -16,11 +16,10 @@
                                 BY VALUE NOTUSED
                                 BY VALUE ARGC
                                 BY REFERENCE ARGV
-                                BY REFERENCE AZCOLNAME
-                                BY REFERENCE SUM-RESULT.
+                                BY REFERENCE AZCOLNAME.
 
            SET ADDRESS OF COLUMN-ID TO FIRSTCOLUMN
-           DISPLAY "COLUMN-ID : " COLUMN-ID
+           DISPLAY "SQL > COLUMN-ID : " COLUMN-ID
 
       *        Call sum function
            CALL "MAIN" USING BY REFERENCE COLUMN-ID

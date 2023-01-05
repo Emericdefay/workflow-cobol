@@ -4,12 +4,11 @@
        ENVIRONMENT DIVISION.
        DATA DIVISION.
        LINKAGE SECTION.
-       01  RC     PIC 9 COMP-5.
-       01  RESULT PIC 9(4).
+       01 COLUMN-ID         PIC 999.
 
        PROCEDURE DIVISION USING BY REFERENCE COLUMN-ID.
       * Calculate sum of array elements
-           DISPLAY "COLUMN-ID " COLUMN-ID
+           DISPLAY "MAIN > COLUMN-ID : " COLUMN-ID
            ADD COLUMN-ID TO SUM-RESULT
 
            EXIT PROGRAM.
