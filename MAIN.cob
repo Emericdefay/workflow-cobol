@@ -14,4 +14,4 @@
            DISPLAY "MAIN > COLUMN-ID : "  COLUMN-ID
            ADD COLUMN-ID TO SUM-RESULT
 
-           END PROGRAM MAIN.
+           EXIT PROGRAM.
