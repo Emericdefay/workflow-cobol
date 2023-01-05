@@ -15,6 +15,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gnucobol libsqlite3-dev
+    - name: Library
+      run: |
+        export COB_LIBRARY_PATH=/.
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
@@ -25,12 +28,9 @@ jobs:
     - name: Ls
       run: ls
     - name: test_sum
-      run: cobc -x test_sum.cob sum.so -lsqlite3
+      run: cobc -o test_sum.cob -lsqlite3
     - name: Ls
       run: ls
-    - name: Library
-      run: |
-        export COB_LIBRARY_PATH=/.
     - name: Env
       run: cobcrun --runtime-config
     - name: Compiler info
