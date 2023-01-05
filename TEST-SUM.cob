@@ -57,7 +57,8 @@
       *        Call sum function
                CALL "MAIN" USING BY REFERENCE RC RETURNING RESULT
            END-CALL
-
+           
+           DISPLAY "RESULTS: " RESULT
       * Check result
            IF RESULT NOT = 15 THEN
                DISPLAY "Test failed: invalid result"
