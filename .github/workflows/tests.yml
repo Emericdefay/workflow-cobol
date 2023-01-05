@@ -28,6 +28,10 @@ jobs:
     - name: Library
       run: |
         export COB_LIBRARY_PATH=.
+    - name: Env
+      run: cobcrun --runtime-env
+    - name: Compiler info
+      run: cobc --info
     - name: Run tests
       run: |
         cobcrun test_sum
