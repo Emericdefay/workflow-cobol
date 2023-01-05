@@ -48,7 +48,6 @@
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
-
            END-CALL
            
            DISPLAY "SUM-RESULT: " SUM-RESULT
@@ -61,8 +60,8 @@
            END-IF
 
       * Disconnect from SQL database
-      *    CALL "sqlite3_close" USING
-      *        BY REFERENCE DB
-      *    END-CALL
+           CALL "sqlite3_close" USING
+               BY REFERENCE DB
+           END-CALL
 
            STOP RUN.
