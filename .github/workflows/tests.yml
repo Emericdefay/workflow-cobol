@@ -22,14 +22,13 @@ jobs:
       run: | 
         cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
         cobc -m -fdebugging-line sum.cob -lsqlite3
-        cobc -x -fdebugging-line -o test_sum.c test_sum.cob -lsqlite3
-    - name: Analysis
+        cobc -x -fdebugging-line -o test_sum test_sum.cob -lsqlite3
+    - name: Library
       run: |
-        ls
+        export COB_LIBRARY_PATH=.
     - name: Run tests
       run: |
-        ls
-        cobcrun ./test_sum.c
+        cobcrun test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
