@@ -12,7 +12,16 @@
        01 SQLQUERY           PIC X(100).
        01 DBNAME             PIC X(08).
        01 RC                 PIC 9 COMP-5.
-       01 CALLBACK USAGE PROCEDURE-POINTER.
+
+
+       01 argv.
+           03  firstColumn   pointer.
+           03  secondColumn  pointer.
+
+       01 azColName          pointer.
+       01 argc               pic 99 comp-5.
+       01 notused            pointer.
+       01 CALLBACK           PROCEDURE-POINTER.
 
       * RESULTS
        01  SUM-RESULT        PIC 9(4) VALUE 0 GLOBAL.
@@ -50,6 +59,8 @@
                RETURNING RC
            END-CALL
            
+           set CALLBACK to entry "TOTO".
+
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
            IF SUM-RESULT NOT = 5050 THEN
@@ -59,9 +70,23 @@
                DISPLAY "Test passed"
            END-IF
 
-      * Disconnect from SQL database
+      * Disconnect from SQL databaseTOTO
            CALL "sqlite3_close" USING
                BY REFERENCE DB
            END-CALL
 
            STOP RUN.
+      * -------------------------------------------------------
+             entry "TOTO"
+             using
+                 by value notused
+                 by value argc
+                 by reference argv
+                 by reference azColName.
+
+            set address of Column-Id   to firstColumn
+            set address of Column-Name to secondColumn
+
+            display Column-id "|" Column-Name
+            goback.
+       Entry-Termination.
