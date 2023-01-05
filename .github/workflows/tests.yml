@@ -18,7 +18,7 @@ jobs:
     - name: Install COBOL compiler
       run: |
         sudo apt-get update
-        sudo apt-get install -y gnucobol libsqlite3-dev
+        sudo apt-get install -y open-cobol libsqlite3-dev
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
@@ -28,10 +28,7 @@ jobs:
       run: cobc -m -fdebugging-line sum.cob -lsqlite3
     - name: test_sum
       run: |
-        cobc -m test_sum.cob -lsqlite3
-    - name: test_sum
-      run: |
-        cobc -o test_suma test_sum.cob -lsqlite3
+        cobc -free -x -o test_sum test_sum.cob -lsqlite3
     - name: Ls
       run: ls
     - name: Env
@@ -42,7 +39,7 @@ jobs:
       run: |
         cd "${COB_FILE_PATH}"
         ls
-        cobcrun ./test_suma.so
+        test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
