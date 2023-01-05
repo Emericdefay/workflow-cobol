@@ -4,11 +4,12 @@
        ENVIRONMENT DIVISION.
        DATA DIVISION.
        LINKAGE SECTION.
-       01  ITEM   PIC 9(4) VALUE 0.
+       01  NUM    PIC 9(4) VALUE 0.
        01  RESULT PIC 9(4) VALUE 0.
 
-       PROCEDURE DIVISION USING ITEM.
+       PROCEDURE DIVISION USING NUM,
+                                RESULT.
       * Calculate sum of array elements
-           ADD ITEM TO RESULT
+           ADD NUM TO RESULT
 
            EXIT PROGRAM.
