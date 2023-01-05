@@ -12,8 +12,9 @@
        01 SQLQUERY           PIC X(100).
        01 DBNAME             PIC X(08).
        01 RC                 PIC 9 COMP-5.
+       01 CALLBACK           PROCEDURE-POINTER.
 
-
+       LINKAGE SECTION.
        01 argv.
            03  firstColumn   pointer.
            03  secondColumn  pointer.
@@ -21,7 +22,6 @@
        01 azColName          pointer.
        01 argc               pic 99 comp-5.
        01 notused            pointer.
-       01 CALLBACK           PROCEDURE-POINTER.
 
       * RESULTS
        01  SUM-RESULT        PIC 9(4) VALUE 0 GLOBAL.
