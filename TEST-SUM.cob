@@ -54,7 +54,7 @@
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
-               DISPLAY RC
+               DISPLAY "RC " RC
       *        Call sum function
                CALL "MAIN" USING BY REFERENCE RC RETURNING RESULT
            END-CALL
