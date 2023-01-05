@@ -17,16 +17,16 @@
                                 BY VALUE NOTUSED
                                 BY VALUE ARGC
                                 BY REFERENCE ARGV
-                                BY REFERENCE AZCOLNAME.
+                                BY REFERENCE AZCOLNAME
                                 BY REFERENCE SUM-RESULT.
 
            SET ADDRESS OF COLUMN-ID TO FIRSTCOLUMN
            DISPLAY "COLUMN-ID : " COLUMN-ID
 
       *        Call sum function
-           CALL "MAIN" USING 
-                           BY REFERENCE RC 
-                           RETURNING    RESULT
+           CALL "MAIN" USING
+                           BY REFERENCE SUM-RESULT
+                           RETURNING    SUM-RESULT
 
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
