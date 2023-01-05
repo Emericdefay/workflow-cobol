@@ -24,7 +24,7 @@ jobs:
         wget https://www.sqlite.org/snapshot/sqlite-snapshot-202301041518.tar.gz
         tar -xvf sqlite-snapshot-202301041518.tar.gz
         ls sqlite-snapshot-202301041518
-        .sqlite-snapshot-202301041518 > ${COB_FILE_PATH}/.
+        .sqlite-snapshot-202301041518/sqlite3.c > ${COB_FILE_PATH}/sqlite3.c
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
