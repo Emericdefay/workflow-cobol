@@ -3,11 +3,12 @@
        DATA DIVISION. 
        WORKING-STORAGE SECTION.
        LINKAGE SECTION.
-       01 COLUMN-ID         PIC 99.
+       01 COLUMN-ID         PIC 9999.
        01 COLUMN-NAME       PIC X(20).
        01 QUERY             PIC X(80).
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
+       01 VARIABLE PIC xxxxxxxx.
        01 ARGV.
            03  FIRSTCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
@@ -15,13 +16,12 @@
                                 BY VALUE NOTUSED
                                 BY VALUE ARGC
                                 BY REFERENCE ARGV
-                                BY REFERENCE AZCOLNAME.
+                                BY REFERENCE AZCOLNAME
+                                RETURNING VARIABLE.
 
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
-           SET ADDRESS OF QUERY       TO FIRSTCOLUMN
        
-           DISPLAY "QUERY " QUERY
            DISPLAY "COLUMN-ID " COLUMN-ID
-       
+           MOVE COLUMN-ID TO VARIABLE
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.

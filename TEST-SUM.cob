@@ -12,8 +12,7 @@
        01 DBNAME             PIC X(08).
        01 RC                 PIC 9 COMP-5.
        01 CALLBACK USAGE PROCEDURE-POINTER.
-       01 ARGV.
-          03  FIRSTCOLUMN   POINTER.
+       01 VARIABLE PIC xxxxxxxx.
 
       * Declare variables for SQL connection
        01  SQL-CONNECTION PIC X(128).
@@ -55,7 +54,7 @@
                BY VALUE     CALLBACK
                BY VALUE     0
                BY REFERENCE ERR
-               RETURNING RC
+               RETURNING VARIABLE
 
                DISPLAY CALLBACK
       *        Call sum function
