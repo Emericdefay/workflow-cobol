@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  PATH: .
+  COB_LIBRARY_PATH: .
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,11 +19,6 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gnucobol libsqlite3-dev
-    - name: Library
-      run: |
-        DIR=pwd
-        export COB_LIBRARY_PATH="$DIR"
-        export PATH="$PATH:$DIR"
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
