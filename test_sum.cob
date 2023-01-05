@@ -11,15 +11,15 @@
            05  FILLER OCCURS 5 TIMES.
                10  ITEM PIC 9(4) VALUE 0.
 
-      * Declare variables for DB2 connection
-       01  DB2-CONNECTION PIC X(128).
-       01  DB2-HOST PIC X(64) VALUE "localhost".
-       01  DB2-PORT PIC 9(5) VALUE 50000.
-       01  DB2-DATABASE PIC X(64) VALUE "TOTO".
-       01  DB2-USERNAME PIC X(64) VALUE "user".
-       01  DB2-PASSWORD PIC X(64) VALUE "password".
+      * Declare variables for SQL connection
+       01  SQL-CONNECTION PIC X(128).
+       01  SQL-HOST PIC X(64) VALUE "localhost".
+       01  SQL-PORT PIC 9(5) VALUE 50000.
+       01  SQL-DATABASE PIC X(64) VALUE "test".
+       01  SQL-USERNAME PIC X(64) VALUE "user".
+       01  SQL-PASSWORD PIC X(64) VALUE "password".
 
-      * Declare cursor for DB2 query
+      * Declare cursor for SQL query
            EXEC SQL
                DECLARE C1 CURSOR FOR
                SELECT VALUE FROM TABLE
@@ -27,14 +27,14 @@
 
        PROCEDURE DIVISION.
 
-      * Connect to DB2 database
-           STRING "CONNECT TO " DB2-DATABASE
-                  " USER " DB2-USERNAME
-                  " USING " DB2-PASSWORD
-           INTO DB2-CONNECTION
+      * Connect to SQL database
+           STRING "CONNECT TO " SQL-DATABASE
+                  " USER " SQL-USERNAME
+                  " USING " SQL-PASSWORD
+           INTO SQL-CONNECTION
            END-STRING
            EXEC SQL
-               PREPARE S1 FROM :DB2-CONNECTION
+               PREPARE S1 FROM :SQL-CONNECTION
            END-EXEC
            EXEC SQL
                EXECUTE S1
@@ -48,7 +48,7 @@
            EXEC SQL
                OPEN C1
            END-EXEC
-      * Fetch value from DB2
+      * Fetch value from SQL
            EXEC SQL
                FETCH FROM C1 INTO :ITEM
            END-EXEC
@@ -71,9 +71,11 @@
                DISPLAY "Test passed"
            END-IF
 
-      * Disconnect from DB2 database
-           EXEC SQL
-               CONNECT RESET
-           END-EXEC
+      * Disconnect from SQL database
+           call "ocsqlite_close"
+               using
+                   by value db
+               returning result
+           end-call
 
-       STOP RUN.
+           STOP RUN.
