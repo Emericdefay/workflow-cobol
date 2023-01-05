@@ -15,7 +15,7 @@
        01 CALLBACK USAGE PROCEDURE-POINTER.
 
       * RESULTS
-       01  SUM-RESULT        PIC 9(4) VALUE 0.
+       01  SUM-RESULT        PIC 9(4) VALUE 0 GLOBAL.
 
        PROCEDURE DIVISION.
            SET DB         TO NULL
@@ -53,7 +53,7 @@
            
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
-           IF SUM-RESULT NOT = 0 THEN
+           IF SUM-RESULT NOT = 5050 THEN
                DISPLAY "Test failed: invalid result"
                CALL "TEST-FAILED"
            ELSE
