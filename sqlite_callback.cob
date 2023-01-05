@@ -20,7 +20,8 @@
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
            SET ADDRESS OF QUERY       TO FIRSTCOLUMN
        
-           DISPLAY QUERY
+           DISPLAY "QUERY " QUERY
+           DISPLAY "COLUMN-ID " COLUMN-ID
        
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
