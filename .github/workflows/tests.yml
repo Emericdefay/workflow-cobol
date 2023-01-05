@@ -28,7 +28,7 @@ jobs:
         ls
     - name: Run tests
       run: |
-        cobcrun test_sum
+        cobcrun ./test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
