@@ -28,6 +28,8 @@ jobs:
       run: cobc -m -fdebugging-line sum.cob -lsqlite3
     - name: test_sum
       run: cobc -m test_sum.cob -lsqlite3
+      run: cobc -o test_suma -lsqlite3
+      run: cobc -x test_sumb -lsqlite3
     - name: Ls
       run: ls
     - name: Env
@@ -37,7 +39,8 @@ jobs:
     - name: Run tests
       run: |
         cd "${COB_FILE_PATH}"
-        cobcrun ./test_sum.so
+        ls
+        cobcrun ./test_suma
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
