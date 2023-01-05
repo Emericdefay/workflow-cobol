@@ -25,7 +25,7 @@ jobs:
         mkdir sqlite_folder
         tar -xvf sqlite-snapshot-202301041518.tar.gz -C sqlite_folder --strip-components 1
         ls sqlite_folder
-        ./sqlite_folder/sqlite3.c > ./sqlite3.c
+        cp ./sqlite_folder/sqlite3.c ./sqlite3.c
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
