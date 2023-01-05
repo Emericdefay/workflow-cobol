@@ -21,6 +21,8 @@
        01  SQL-USERNAME PIC X(64) VALUE "user".
        01  SQL-PASSWORD PIC X(64) VALUE "password".
 
+       01  RESULT PIC 9(4) VALUE 0.
+
        PROCEDURE DIVISION.
            SET DB         TO NULL
            SET ERR        TO NULL
@@ -53,7 +55,7 @@
                BY REFERENCE ERR
                RETURNING RC
       *        Call sum function
-               CALL "SUM" USING BY REFERENCE RC GIVING RESULT
+               CALL "SUM" USING BY REFERENCE RC RETURNING RESULT
            END-CALL
 
       * Check result

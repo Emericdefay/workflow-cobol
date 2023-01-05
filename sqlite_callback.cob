@@ -12,8 +12,8 @@
           03  SECONDCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
        PROCEDURE DIVISION USING
-                               BY VALUE NOTUSED
-                               BY VALUE ARGC
+      *                         BY VALUE NOTUSED
+      *                         BY VALUE ARGC
                                BY REFERENCE ARGV
                                BY REFERENCE AZCOLNAME.
 
