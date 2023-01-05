@@ -7,8 +7,8 @@ on:
     branches: [ main ]
 
 env:
-  PATH: .
-  COB_LIBRARY_PATH: .
+  COB_LIBRARY_PATH: /home/runner/work/workflow-cobol/workflow-cobol
+  COB_FILES_PATH: /home/runner/work/workflow-cobol/workflow-cobol
 
 jobs:
   build:
