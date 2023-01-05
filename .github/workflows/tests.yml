@@ -17,12 +17,15 @@ jobs:
         sudo apt-get install -y gnucobol libsqlite3-dev
     - name: Initialize database from .tests/SQL.txt
       run: |
-        sqlite3 test.db < ./tests/SQL.txt
-    - name: Compile COBOL code
-      run: | 
-        cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
-        cobc -m -fdebugging-line sum.cob -lsqlite3
-        cobc -x test_sum.cob sum.s -lsqlite3
+        sqlite3 test.db < ./tests/SQL.txt        
+    - name: sqlite_callback
+      run: cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
+    - name: sum
+      run: cobc -m -fdebugging-line sum.cob -lsqlite3
+    - name: Ls
+      run: ls
+    - name: test_sum
+      run: cobc -x test_sum.cob sum.s -lsqlite3
     - name: Ls
       run: ls
     - name: Library
