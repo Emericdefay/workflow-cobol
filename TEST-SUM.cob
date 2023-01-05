@@ -54,7 +54,7 @@
                BY VALUE     CALLBACK
                BY VALUE     0
                BY REFERENCE ERR
-               RETURNING VARIABLE
+               RETURNING RC
 
                DISPLAY CALLBACK
       *        Call sum function
