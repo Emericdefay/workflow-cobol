@@ -26,18 +26,10 @@ jobs:
       run: cobc -m -fdebugging-line sqlite_callback.cob -lsqlite3
     - name: sum
       run: cobc -m -fdebugging-line sum.cob -lsqlite3
-    - name: Ls
-      run: ls
     - name: test_sum
       run: cobc -m test_sum.cob -lsqlite3
     - name: Ls
       run: ls
-    - name: PATH add
-      run: echo "/home/runner/work/workflow-cobol/workflow-cobol" >> $GITHUB_PATH
-    - name: GITHUB_PATH
-      run: echo $GITHUB_PATH
-    - name: path
-      run: pwd
     - name: Env
       run: cobcrun --runtime-config
     - name: Compiler info
@@ -45,7 +37,8 @@ jobs:
     - name: Run tests
       run: |
         DIR=pwd
-        cobcrun $DIR/test_sum
+        COBOL="$DIR/test_sum"
+        cobcrun $COBOL
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
