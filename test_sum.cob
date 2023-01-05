@@ -5,13 +5,13 @@
 
        DATA DIVISION.
 
-       WORKING-STORAGE SECTION.
-
-       01  TEST-ARRAY.
-           05  FILLER OCCURS 5 TIMES.
-               10  ITEM PIC 9(4) VALUE 0.
-      
-       01 DB POINTER.
+       WORKING-STORAGE SECTION.      
+       01 DB                 POINTER.
+       01 ERR                POINTER.
+       01 SQLQUERY           PIC X(100).
+       01 DBNAME             PIC X(08).
+       01 RC                 PIC 9 COMP-5.
+       01 CALLBACK USAGE PROCEDURE-POINTER.
 
       * Declare variables for SQL connection
        01  SQL-CONNECTION PIC X(128).
@@ -21,21 +21,14 @@
        01  SQL-USERNAME PIC X(64) VALUE "user".
        01  SQL-PASSWORD PIC X(64) VALUE "password".
 
-      * Declare cursor for SQL query
-           EXEC SQL
-               DECLARE C1 CURSOR FOR
-               SELECT VALUE FROM TABLE
-           END-EXEC.
-
        PROCEDURE DIVISION.
+           SET DB         TO NULL
+           SET ERR        TO NULL
 
+           MOVE Z"test.db" TO DBNAME
+
+           DISPLAY "RUNNING sqlite3_open"
       * Connect to SQL database
-           STRING "CONNECT TO " SQL-DATABASE
-                  " USER " SQL-USERNAME
-                  " USING " SQL-PASSWORD
-           INTO SQL-CONNECTION
-           END-STRING
-
            CALL "sqlite3_open" USING
                BY REFERENCE  DBNAME
                BY REFERENCE  DB

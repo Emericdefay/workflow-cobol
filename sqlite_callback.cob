@@ -11,12 +11,12 @@
           03  FIRSTCOLUMN   POINTER.
           03  SECONDCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
-       PROCEDURE DIVISION
-            USING
-           BY VALUE NOTUSED
-           BY VALUE ARGC
-           BY REFERENCE ARGV
-           BY REFERENCE AZCOLNAME.
+       PROCEDURE DIVISION USING
+                               BY VALUE NOTUSED
+                               BY VALUE ARGC
+                               BY REFERENCE ARGV
+                               BY REFERENCE AZCOLNAME.
+
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
            SET ADDRESS OF COLUMN-NAME TO SECONDCOLUMN
        
