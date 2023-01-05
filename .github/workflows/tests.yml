@@ -30,7 +30,7 @@ jobs:
       run: ls
     - name: Library
       run: |
-        export COB_LIBRARY_PATH=.
+        export COB_LIBRARY_PATH=/.
     - name: Env
       run: cobcrun --runtime-config
     - name: Compiler info
