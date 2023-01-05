@@ -65,8 +65,9 @@
            
            DISPLAY "RESULTS: " RESULT
       * Check result
-           IF RESULT NOT = 15 THEN
+           IF RESULT NOT = 0 THEN
                DISPLAY "Test failed: invalid result"
+               CALL "TEST-FAILED"
            ELSE
                DISPLAY "Test passed"
            END-IF

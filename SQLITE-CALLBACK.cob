@@ -8,7 +8,6 @@
        01 QUERY             PIC X(80).
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
-       01 VARIABLE PIC xxxxxxxx.
        01 ARGV.
            03  FIRSTCOLUMN  POINTER.
        01 AZCOLNAME         POINTER.
@@ -16,12 +15,9 @@
                                 BY VALUE NOTUSED
                                 BY VALUE ARGC
                                 BY REFERENCE ARGV
-                                BY REFERENCE AZCOLNAME
-                                RETURNING VARIABLE.
+                                BY REFERENCE AZCOLNAME.
 
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
-       
-           DISPLAY "COLUMN-ID " COLUMN-ID
-           MOVE COLUMN-ID TO VARIABLE
+           DISPLAY "COLUMN-ID : " COLUMN-ID
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
