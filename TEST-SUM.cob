@@ -48,7 +48,7 @@
                DISPLAY "DATABASE OPENED."
            END-IF
 
-           SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK"
+           SET CALLBACK TO ADDRESS OF ENTRY "TOTO"
 
            MOVE "SELECT * FROM TESTTABLE;" TO SQLQUERY
            
@@ -61,7 +61,7 @@
                RETURNING RC
            END-CALL
            
-           set CALLBACK to entry "TOTO".
+           CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
