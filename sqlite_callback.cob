@@ -15,14 +15,13 @@
       *                         BY VALUE NOTUSED
       *                        BY VALUE ARGC
                                BY REFERENCE ARGV
-                               BY REFERENCE AZCOLNAME
-                               RETURNING ARGV.
+                               BY REFERENCE AZCOLNAME.
 
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
        
            DISPLAY COLUMN-ID
 
-           
+
        
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
