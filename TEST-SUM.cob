@@ -73,8 +73,8 @@
            END-IF
 
       * Disconnect from SQL database
-           CALL "sqlite3_close" USING
-               BY REFERENCE DB
-           END-CALL
+      *    CALL "sqlite3_close" USING
+      *        BY REFERENCE DB
+      *    END-CALL
 
            STOP RUN.
