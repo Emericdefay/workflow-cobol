@@ -17,8 +17,8 @@ jobs:
         sudo apt-get install -y gnucobol libsqlite3-dev
     - name: Library
       run: |
-        export COB_LIBRARY_PATH="/."
-        export PATH="/."
+        set COB_LIBRARY_PATH = /.
+        export PATH=$PATH:/.
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
