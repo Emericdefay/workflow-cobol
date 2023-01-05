@@ -19,12 +19,11 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y gnucobol libsqlite3-dev
-    - name: A
+    - name: Get amalgamation source code SQLITE
       run: |
         wget https://www.sqlite.org/snapshot/sqlite-snapshot-202301041518.tar.gz
         mkdir sqlite_folder
         tar -xvf sqlite-snapshot-202301041518.tar.gz -C sqlite_folder --strip-components 1
-        ls sqlite_folder
         cp ./sqlite_folder/sqlite3.c ./sqlite3.c
     - name: Initialize database from .tests/SQL.txt
       run: |
@@ -47,7 +46,7 @@ jobs:
       run: cobc --info
     - name: Run tests
       run: |
-        ./TEST-SUM
+        ./test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
