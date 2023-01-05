@@ -55,14 +55,13 @@
                BY VALUE     CALLBACK
                BY VALUE     0
                BY REFERENCE ERR
-               RETURNING ARGV
+               RETURNING RC
 
                DISPLAY CALLBACK
       *        Call sum function
-               CALL "MAIN" USING 
-                               BY REFERENCE FIRSTCOLUMN 
-                               RETURNING    RESULT
-               END-CALL
+      *        CALL "MAIN" USING 
+      *                        BY REFERENCE FIRSTCOLUMN 
+      *                        RETURNING    RESULT
            END-CALL
            
            DISPLAY "RESULTS: " RESULT

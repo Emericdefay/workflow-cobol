@@ -21,6 +21,8 @@
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
        
            DISPLAY COLUMN-ID
-             
+
+           
+       
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
