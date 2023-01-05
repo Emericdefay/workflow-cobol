@@ -13,10 +13,10 @@
        01 DBNAME             PIC X(08).
        01 RC                 PIC 9 COMP-5.
        01 CALLBACK           PROCEDURE-POINTER.
-       01 Column-Id         PIC 999.
-       01 Column-Name       PIC X(20).
 
        LINKAGE SECTION.
+       01 Column-Id         PIC 999.
+       01 Column-Name       PIC X(20).
        01 argv.
            03  firstColumn   pointer.
            03  secondColumn  pointer.
