@@ -9,7 +9,7 @@
 
        PROCEDURE DIVISION USING 
                                 NUM
-                          GIVING 
+                          RETURNING 
                                 RESULT.
       * Calculate sum of array elements
            ADD NUM TO RESULT
