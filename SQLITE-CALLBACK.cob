@@ -22,7 +22,7 @@
            DISPLAY "SQL > COLUMN-ID : " COLUMN-ID
 
       *        Call sum function
-           CALL "MAIN" USING BY REFERENCE COLUMN-ID
+           CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
