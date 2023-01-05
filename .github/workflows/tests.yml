@@ -42,7 +42,7 @@ jobs:
       run: cobc --info
     - name: Run tests
       run: |
-        cobcrun test_sum
+        test_sum
         if [ $? -ne 0 ]; then
           echo "Tests failed"
           exit 1
