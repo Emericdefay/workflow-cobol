@@ -13,15 +13,14 @@
        01 AZCOLNAME         POINTER.
        PROCEDURE DIVISION USING
       *                         BY VALUE NOTUSED
-      *                         BY VALUE ARGC
+      *                        BY VALUE ARGC
                                BY REFERENCE ARGV
                                BY REFERENCE AZCOLNAME
                                RETURNING ARGV.
 
            SET ADDRESS OF COLUMN-ID   TO FIRSTCOLUMN
-           SET ADDRESS OF COLUMN-NAME TO SECONDCOLUMN
        
-           DISPLAY COLUMN-ID "|" COLUMN-NAME
+           DISPLAY COLUMN-ID
              
            GOBACK.
        END PROGRAM SQLITE-CALLBACK.
