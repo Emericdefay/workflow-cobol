@@ -32,6 +32,8 @@ jobs:
       run: cobc -o test_sum test_sum.cob -lsqlite3
     - name: Ls
       run: ls
+    - name: path
+      run: echo $PATH
     - name: Env
       run: cobcrun --runtime-config
     - name: Compiler info
