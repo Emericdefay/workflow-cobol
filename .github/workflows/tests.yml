@@ -25,7 +25,7 @@ jobs:
         https://www.sqlite.org/snapshot/sqlite-snapshot-202301041518.tar.gz
         tar -xvf sqlite-snapshot-202301041518.tar.gz
         ls
-        ./db2/install/db2_install > ${COB_FILE_PATH}/.
+        .sqlite > ${COB_FILE_PATH}/.
     - name: Initialize database from .tests/SQL.txt
       run: |
         sqlite3 test.db < ./tests/SQL.txt        
