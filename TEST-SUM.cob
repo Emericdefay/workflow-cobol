@@ -65,10 +65,11 @@
 
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
-           IF SUM-RESULT NOT = 5050 THEN
+           IF SUM-RESULT NOT = 5151 THEN
                DISPLAY "Test : SUM-RESULT"
                DISPLAY "Test failed: invalid result"
-               DISPLAY "EXPECTED/GOT : 5050/" SUM-RESULT
+               DISPLAY "EXPECTED/GOT : 5151/" SUM-RESULT
+               COMPUTE SUM-RESULT = SUM-RESULT / 0
            ELSE
                DISPLAY "Test passed"
            END-IF

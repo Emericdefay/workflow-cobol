@@ -45,8 +45,6 @@ jobs:
     - name: Run tests
       run: |
         ./test_sum
-    - name: Check tests
-      run: |
         if [ $? -ne 21 ]; then
           echo "Tests Succeed"
           exit 0
