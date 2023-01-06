@@ -64,7 +64,7 @@
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
-      *    DISPLAY "SUM-RESULT: " SUM-RESULT
+           DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
            IF SUM-RESULT NOT = 5050 THEN
                DISPLAY "Test failed: invalid result"
@@ -88,10 +88,10 @@
            SET ADDRESS OF COLUMN-ID TO FIRSTCOLUMN
            SET ADDRESS OF COLUMN-NAME TO SECONDCOLUMN
            DISPLAY "SQL > COLUMN-ID   : " COLUMN-ID
-      *    DISPLAY "SQL > COLUMN-NAME : " COLUMN-NAME
+           DISPLAY "SQL > COLUMN-NAME : " COLUMN-NAME
 
       *        Call sum function
-      *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
-      *                      BY REFERENCE SUM-RESULT
+           CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
+                             BY REFERENCE SUM-RESULT
 
            GOBACK.
