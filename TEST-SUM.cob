@@ -14,6 +14,14 @@
        01 RC                 PIC 9 COMP-5.
        01 CALLBACK           PROCEDURE-POINTER.
 
+       01 CALLL.
+           02 ARGC              PIC 99 COMP-5.
+           02 NOTUSED           POINTER.
+           02 ARGV.
+               03  FIRSTCOLUMN  POINTER.
+               03  SECONDCOLUMN POINTER.
+           02 AZCOLNAME         POINTER.
+
        LINKAGE SECTION.
        01 Column-id         PIC 999.
        01 Column-Name       PIC X(20).
@@ -55,10 +63,14 @@
            CALL "sqlite3_exec" USING
                BY VALUE     DB
                BY REFERENCE SQLQUERY
-               BY VALUE     CALLBACK
+      *        BY VALUE     CALLBACK
+               BY VALUE     CALLL
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
+
+               DISPLAY "A : " FIRSTCOLUMN
+
            END-CALL
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
