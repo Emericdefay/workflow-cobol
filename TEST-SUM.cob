@@ -12,8 +12,8 @@
        01 SQLQUERY          PIC X(100).
        01 DBNAME            PIC X(08).
        01 RC                PIC 9 COMP-5.
-       01 CALLBACK          PROCEDURE-POINTER.
-       01 SUM-RESULT  USAGE PIC 9(4) VALUE 0.
+       01 CALLBACK    USAGE PROCEDURE-POINTER.
+       01 SUM-RESULT        PIC 9(4) VALUE 0.
 
        LINKAGE SECTION.
       * RESULTS
