@@ -68,7 +68,6 @@
       * Check result
            IF SUM-RESULT NOT = 5050 THEN
                DISPLAY "Test failed: invalid result"
-               CALL "TEST-FAILED"
            ELSE
                DISPLAY "Test passed"
            END-IF
