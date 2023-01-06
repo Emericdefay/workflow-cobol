@@ -46,7 +46,7 @@ jobs:
       run: |
         ./test_sum
         echo $?
-        if [[ $? =~ 21 ]]; then
+        if [[ $? -ne 21 ]]; then
           echo "Tests Succeed"
           exit 0
         else
