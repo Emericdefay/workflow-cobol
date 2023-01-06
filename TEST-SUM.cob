@@ -27,8 +27,12 @@
        01  SUM-RESULT        PIC 9(4) VALUE 0 GLOBAL.
 
        PROCEDURE DIVISION.
-           SET DB         TO NULL
-           SET ERR        TO NULL
+           SET DB           TO NULL
+           SET ERR          TO NULL
+           SET NOTUSED      TO NULL
+           SET FIRSTCOLUMN  TO NULL
+           SET SECONDCOLUMN TO NULL
+           SET AZCOLNAME    TO NULL
 
            MOVE Z"test.db" TO DBNAME
 
@@ -57,8 +61,8 @@
                BY REFERENCE CALLL
                BY VALUE     0
                BY REFERENCE ERR
-               RETURNING RC
-               DISPLAY "A : " FIRSTCOLUMN
+               RETURNING CALLL
+               DISPLAY "A : " CALLL
       *    END-CALL
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
