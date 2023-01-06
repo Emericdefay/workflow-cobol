@@ -4,7 +4,7 @@
        ENVIRONMENT DIVISION.
        DATA DIVISION.
        WORKING-STORAGE SECTION.
-       01 TEST PIC 999.
+       01 TEST-A PIC 999.
        LINKAGE SECTION.
        01 SUM-RESULT        PIC 9(5).
        01 COLUMN-ID         PIC X(3).
