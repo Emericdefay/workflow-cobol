@@ -7,16 +7,17 @@
 
        WORKING-STORAGE SECTION.      
       * Declare variables for SQL connection
-       01 DB                 POINTER.
-       01 ERR                POINTER.
-       01 SQLQUERY           PIC X(100).
-       01 DBNAME             PIC X(08).
-       01 RC                 PIC 9 COMP-5.
-       01 CALLBACK           PROCEDURE-POINTER.
+       01 DB                POINTER.
+       01 ERR               POINTER.
+       01 SQLQUERY          PIC X(100).
+       01 DBNAME            PIC X(08).
+       01 RC                PIC 9 COMP-5.
+       01 CALLBACK          PROCEDURE-POINTER.
+       01 SUM-RESULT        PIC 9(4) VALUE 0.
 
        LINKAGE SECTION.
       * RESULTS
-       01 SUM-RESULT        PIC 9(4) VALUE 0.
+      *01 SUM-RESULT        PIC 9(4) VALUE 0.
       * SQL CALLBACK
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
@@ -63,7 +64,7 @@
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
-           DISPLAY "SUM-RESULT: " SUM-RESULT
+      *    DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
            IF SUM-RESULT NOT = 5050 THEN
                DISPLAY "Test failed: invalid result"
@@ -91,7 +92,7 @@
       *    DISPLAY "SQL > COLUMN-NAME : " COLUMN-NAME
 
       *        Call sum function
-           CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
-                             BY REFERENCE SUM-RESULT
+      *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
+      *                      BY REFERENCE SUM-RESULT
 
            EXIT PROGRAM.
