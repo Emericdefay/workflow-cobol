@@ -13,13 +13,12 @@
        01 DBNAME            PIC X(08).
        01 RC                PIC 9 COMP-5.
        01 CALLBACK    USAGE PROCEDURE-POINTER.
+      * RESULTS
        01 SUM-RESULT        PIC 9(5) VALUE 0.
 
        LINKAGE SECTION.
-      * RESULTS
-      *01 SUM-RESULT        PIC 9(4) VALUE 0.
       * SQL CALLBACK
-       01 ARGC              PIC 99 COMP-5.
+       01 ARGC              PIC 9(5) COMP-5.
        01 NOTUSED           POINTER.
        01 ARGV.
            03  FIRSTCOLUMN  POINTER.
