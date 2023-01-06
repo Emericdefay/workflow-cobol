@@ -68,7 +68,7 @@
            IF SUM-RESULT NOT = 5050 THEN
                DISPLAY "Test : SUM-RESULT"
                DISPLAY "Test failed: invalid result"
-               DISPLAY "EXPECTED/GOT : 5151/" SUM-RESULT
+               DISPLAY "EXPECTED/GOT : 5050/" SUM-RESULT
                PERFORM ENDPGM
            ELSE
                DISPLAY "Test passed"
@@ -81,7 +81,7 @@
 
            STOP RUN.
 
-       ENDPMG.
+       ENDPGM.
            EXIT PROGRAM.
 
       ******************************************************************
