@@ -15,9 +15,9 @@
        01 CALLBACK           PROCEDURE-POINTER.
 
       * RESULTS
-       01  SUM-RESULT        PIC 9(4) VALUE 0.
 
        LINKAGE SECTION.
+       01 SUM-RESULT        PIC 9(4) VALUE 0.
        01 ARGC              PIC 99 COMP-5.
        01 NOTUSED           POINTER.
        01 ARGV.
@@ -95,6 +95,7 @@
       *    DISPLAY "SQL > COLUMN-NAME : " COLUMN-NAME
 
       *        Call sum function
-           CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
+           CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
+                             BY REFERENCE SUM-RESULT
 
            EXIT PROGRAM.
