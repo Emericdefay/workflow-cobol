@@ -13,7 +13,7 @@
        01 DBNAME            PIC X(08).
        01 RC                PIC 9 COMP-5.
        01 CALLBACK          PROCEDURE-POINTER.
-       01 SUM-RESULT        PIC 9(4) VALUE 0.
+       01 SUM-RESULT  USAGE PIC 9(4) VALUE 0.
 
        LINKAGE SECTION.
       * RESULTS
@@ -26,7 +26,7 @@
            03  SECONDCOLUMN POINTER.
        01 AZCOLNAME         POINTER.
       * SQL CALLBACK SELECT
-       01 COLUMN-ID         PIC 999.
+       01 COLUMN-ID         PIC 99.
        01 COLUMN-NAME       PIC X(20).
 
        PROCEDURE DIVISION.
@@ -60,7 +60,7 @@
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
-      *    END-CALL
+           END-CALL
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
@@ -95,4 +95,4 @@
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
       *                      BY REFERENCE SUM-RESULT
 
-           EXIT PROGRAM.
+           GOBACK.
