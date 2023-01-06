@@ -22,16 +22,6 @@
                03  SECONDCOLUMN POINTER.
            02 AZCOLNAME         POINTER.
 
-       LINKAGE SECTION.
-       01 Column-id         PIC 999.
-       01 Column-Name       PIC X(20).
-       01 argv.
-           03  firstColumn   pointer.
-           03  secondColumn  pointer.
-
-       01 azColName          pointer.
-       01 argc               pic 99 comp-5.
-       01 notused            pointer.
 
       * RESULTS
        01  SUM-RESULT        PIC 9(4) VALUE 0 GLOBAL.
@@ -68,9 +58,7 @@
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
-
                DISPLAY "A : " FIRSTCOLUMN
-
            END-CALL
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
