@@ -25,7 +25,7 @@
            03  SECONDCOLUMN POINTER.
        01 AZCOLNAME         POINTER.
       * SQL CALLBACK SELECT
-       01 COLUMN-ID         PIC 9(3).
+       01 COLUMN-ID         PIC X(3).
        01 COLUMN-NAME       PIC X(20).
 
        PROCEDURE DIVISION.
