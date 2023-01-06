@@ -45,7 +45,7 @@ jobs:
     - name: Run tests
       run: |
         ./test_sum
-        if [[ $? -eq 21 ]]; then
+        if [[ $? -eq 0 ]]; then
           echo "Tests Succeed"
           exit 0
         else
