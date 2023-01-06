@@ -14,7 +14,6 @@
        01 RC                 PIC 9 COMP-5.
        01 CALLBACK           PROCEDURE-POINTER.
 
-
        LINKAGE SECTION.
       * RESULTS
        01 SUM-RESULT        PIC 9(4) VALUE 0.
@@ -32,10 +31,6 @@
        PROCEDURE DIVISION.
            SET DB           TO NULL
            SET ERR          TO NULL
-           SET NOTUSED      TO NULL
-           SET FIRSTCOLUMN  TO NULL
-           SET SECONDCOLUMN TO NULL
-           SET AZCOLNAME    TO NULL
 
            MOVE Z"test.db" TO DBNAME
 
