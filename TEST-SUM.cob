@@ -48,7 +48,7 @@
                DISPLAY "DATABASE OPENED."
            END-IF
 
-           SET CALLBACK TO ADDRESS OF ENTRY "TOTO"
+           SET CALLBACK TO ADDRESS OF ENTRY "SQLITE-CALLBACK"
 
            MOVE "SELECT * FROM TESTTABLE;" TO SQLQUERY
            
@@ -61,7 +61,7 @@
                RETURNING RC
            END-CALL
            
-           CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
+      *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
@@ -78,17 +78,3 @@
            END-CALL
 
            STOP RUN.
-      * -------------------------------------------------------
-             entry "TOTO"
-             using
-                 by value notused
-                 by value argc
-                 by reference argv
-                 by reference azColName.
-
-            set address of Column-id   to firstColumn
-            set address of Column-Name to secondColumn
-
-            display Column-id "|" Column-Name
-            goback.
-       Entry-Termination.
