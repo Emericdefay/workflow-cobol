@@ -82,6 +82,9 @@
            STOP RUN.
 
        ENDPGM.
+           CALL "sqlite3_close" USING
+               BY REFERENCE DB
+           END-CALL
            EXIT PROGRAM.
 
       ******************************************************************
