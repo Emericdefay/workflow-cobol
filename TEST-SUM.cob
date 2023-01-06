@@ -69,8 +69,7 @@
                DISPLAY "Test : SUM-RESULT"
                DISPLAY "Test failed: invalid result"
                DISPLAY "EXPECTED/GOT : 5151/" SUM-RESULT
-               COMPUTE SUM-RESULT = SUM-RESULT / 0
-               CALL "TEST FAILED"
+               GO TO "TESTS FAILED"
            ELSE
                DISPLAY "Test passed"
            END-IF
