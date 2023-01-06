@@ -18,14 +18,14 @@
 
        LINKAGE SECTION.
       * SQL CALLBACK
-       01 ARGC              PIC 9(5) COMP-5.
+       01 ARGC              PIC 9(2) COMP-5.
        01 NOTUSED           POINTER.
        01 ARGV.
            03  FIRSTCOLUMN  POINTER.
            03  SECONDCOLUMN POINTER.
        01 AZCOLNAME         POINTER.
       * SQL CALLBACK SELECT
-       01 COLUMN-ID         PIC 9(5).
+       01 COLUMN-ID         PIC 9(3).
        01 COLUMN-NAME       PIC X(20).
 
        PROCEDURE DIVISION.
