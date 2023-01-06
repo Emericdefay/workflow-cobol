@@ -70,6 +70,7 @@
                DISPLAY "Test failed: invalid result"
                DISPLAY "EXPECTED/GOT : 5151/" SUM-RESULT
                COMPUTE SUM-RESULT = SUM-RESULT / 0
+               CALL "TEST FAILED"
            ELSE
                DISPLAY "Test passed"
            END-IF
