@@ -12,8 +12,8 @@
        PROCEDURE DIVISION USING BY REFERENCE COLUMN-ID, 
                                              SUM-RESULT.
       * Calculate sum of array elements
-           DISPLAY "MAIN > SUM-RESULT : " SUM-RESULT
-           DISPLAY "MAIN > COLUMN-ID : "  COLUMN-ID
+      *    DISPLAY "MAIN > SUM-RESULT : " SUM-RESULT
+      *    DISPLAY "MAIN > COLUMN-ID : "  COLUMN-ID
 
            MOVE COLUMN-ID TO INCREMENT.
            ADD INCREMENT TO SUM-RESULT
