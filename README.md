@@ -42,9 +42,9 @@ BUT, using this method restrains your tests' field to unit testing of simple mod
 
 ## 🎈 Usage <a name="usage"></a>
 
-1. Adapte ```SUM.cob``` ```TEST-SUM.cob``` To your programs
-2. Adapte ````SQL.txt``` if you need data
-3. Adapte ```.github/Workflow/test.yml``` To run your tests
+1. Adapte ```SUM.cob``` & ```TEST-SUM.cob``` to your programs
+2. Adapte ```SQL.txt``` if you need data
+3. Adapte ```.github/Workflow/test.yml``` to run your tests
 
 ## ✍️ Authors <a name = "authors"></a>
 
