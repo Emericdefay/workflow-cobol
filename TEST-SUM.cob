@@ -13,7 +13,7 @@
        01 DBNAME            PIC X(08).
        01 RC                PIC 9 COMP-5.
        01 CALLBACK    USAGE PROCEDURE-POINTER.
-       01 SUM-RESULT        PIC 9(4) VALUE 0.
+       01 SUM-RESULT        PIC 9(5) VALUE 0.
 
        LINKAGE SECTION.
       * RESULTS
@@ -67,7 +67,9 @@
            DISPLAY "SUM-RESULT: " SUM-RESULT
       * Check result
            IF SUM-RESULT NOT = 5050 THEN
+               DISPLAY "Test : SUM-RESULT"
                DISPLAY "Test failed: invalid result"
+               DISPLAY "EXPECTED/GOT : 5050/" SUM-RESULT
            ELSE
                DISPLAY "Test passed"
            END-IF
