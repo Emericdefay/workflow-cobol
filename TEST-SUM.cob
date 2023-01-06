@@ -97,5 +97,4 @@
       *        Call sum function
            CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
-           GOBACK.
-       END PROGRAM.
+           EXIT PROGRAM.
