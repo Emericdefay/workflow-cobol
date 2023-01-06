@@ -8,8 +8,8 @@
 <div align="center">
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
+[![GitHub Issues](https://img.shields.io/github/issues/Emericdefay/workflow-cobol.svg)](https://github.com/Emericdefay/workflow-cobol/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Emericdefay/workflow-cobol.svg)](https://github.com/Emericdefay/workflow-cobol/pulls)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
@@ -42,7 +42,9 @@ BUT, using this method restrains your tests' field to unit testing of simple mod
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+1. Adapte ```SUM.cob``` ```TEST-SUM.cob``` To your programs
+2. Adapte ````SQL.txt``` if you need data
+3. Adapte ```.github/Workflow/test.yml``` To run your tests
 
 ## ✍️ Authors <a name = "authors"></a>
 
