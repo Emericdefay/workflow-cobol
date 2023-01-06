@@ -96,7 +96,7 @@
       *    DISPLAY "SQL > COLUMN-NAME : " COLUMN-NAME
 
       *        Call sum function
-           CALL "MAIN" USING BY REFERENCE COLUMN-ID, 
-                             BY REFERENCE SUM-RESULT
+           CALL "SUM" USING BY REFERENCE COLUMN-ID, 
+                            BY REFERENCE SUM-RESULT
 
            GOBACK.

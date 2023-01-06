@@ -32,10 +32,10 @@ jobs:
       run: |
         cobc -c -lsqlit3 sqlite3.c
     - name: compil - SUM
-      run: cobc -m -fdebugging-line MAIN.cob -lsqlite3
+      run: cobc -m -fdebugging-line SUM.cob -lsqlite3
     - name: compil - TEST-SUM
       run: |
-        cobc -x -o test_sum TEST-SUM.cob sqlite3.o MAIN.so -lsqlite3
+        cobc -x -o test_sum TEST-SUM.cob sqlite3.o SUM.so -lsqlite3
     - name: Ls
       run: ls
     - name: Env
@@ -46,7 +46,7 @@ jobs:
       run: |
         ./test_sum
         echo $?
-        if [[ $? -ne 21 ]]; then
+        if [[ $? -eq 21 ]]; then
           echo "Tests Succeed"
           exit 0
         else
