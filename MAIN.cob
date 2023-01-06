@@ -5,7 +5,7 @@
        DATA DIVISION.
        LINKAGE SECTION.
        01 SUM-RESULT        PIC 9(5).
-       01 COLUMN-ID         PIC 999.
+       01 COLUMN-ID         PIC 9(5).
 
        PROCEDURE DIVISION USING BY REFERENCE COLUMN-ID, 
                                              SUM-RESULT.
