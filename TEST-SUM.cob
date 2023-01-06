@@ -69,7 +69,7 @@
                DISPLAY "Test : SUM-RESULT"
                DISPLAY "Test failed: invalid result"
                DISPLAY "EXPECTED/GOT : 5151/" SUM-RESULT
-               GO TO "TESTS FAILED"
+               PERFORM ENDPGM
            ELSE
                DISPLAY "Test passed"
            END-IF
@@ -80,6 +80,9 @@
            END-CALL
 
            STOP RUN.
+
+       ENDPMG.
+           EXIT PROGRAM.
 
       ******************************************************************
        ENTRY "CALLBACK" USING   BY VALUE NOTUSED
