@@ -54,12 +54,12 @@
                BY VALUE     DB
                BY REFERENCE SQLQUERY
       *        BY VALUE     CALLBACK
-               BY VALUE     CALLL
+               BY REFERENCE CALLL
                BY VALUE     0
                BY REFERENCE ERR
                RETURNING RC
                DISPLAY "A : " FIRSTCOLUMN
-           END-CALL
+      *    END-CALL
            
       *    CALL "MAIN" USING BY REFERENCE COLUMN-ID, SUM-RESULT
 
